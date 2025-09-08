@@ -34,28 +34,38 @@ obj_data = []
 spawn_timer = 0
 spawn_delay = 300 # milliseconds
 
+
+player_image = pg.image.load('.assets/images/Goomba-PNG-File.png')
+player_image = pg.transform.scale(player_image, (player_size, player_size))
+
+obj = pg.image.load('.assets/images/mario.png')
+obj = pg.transform.scale(obj, (obj_size, obj_size))
+
+bg_image = pg.image.load('.assets/images/background.png')
+bg_image = pg.transform.scale(bg_image, (win_width, win_height))
+
 # Try to load images with error handling
-try:
-    player_image = pg.image.load('.assets/images/Goomba-PNG-File.png')
-    player_image = pg.transform.scale(player_image, (player_size, player_size))
-except:
-    # Create a placeholder if image fails to load
-    player_image = pg.Surface((player_size, player_size))
-    player_image.fill((0, 255, 0))  # Green square
+# try:
+#     player_image = pg.image.load('.assets/images/Goomba-PNG-File.png')
+#     player_image = pg.transform.scale(player_image, (player_size, player_size))
+# except:
+#     # Create a placeholder if image fails to load
+#     player_image = pg.Surface((player_size, player_size))
+#     player_image.fill((0, 255, 0))  # Green square
 
-try:
-    obj = pg.image.load('.assets/images/mario.png')
-    obj = pg.transform.scale(obj, (obj_size, obj_size))
-except:
-    obj = pg.Surface((obj_size, obj_size))
-    obj.fill((255, 0, 0))  # Red square
+# try:
+#     obj = pg.image.load('.assets/images/mario.png')
+#     obj = pg.transform.scale(obj, (obj_size, obj_size))
+# except:
+#     obj = pg.Surface((obj_size, obj_size))
+#     obj.fill((255, 0, 0))  # Red square
 
-try:
-    bg_image = pg.image.load('.assets/images/background.png')
-    bg_image = pg.transform.scale(bg_image, (win_width, win_height))
-except:
-    bg_image = pg.Surface((win_width, win_height))
-    bg_image.fill((0, 0, 50))  # Dark blue background
+# try:
+#     bg_image = pg.image.load('.assets/images/background.png')
+#     bg_image = pg.transform.scale(bg_image, (win_width, win_height))
+# except:
+#     bg_image = pg.Surface((win_width, win_height))
+#     bg_image.fill((0, 0, 50))  # Dark blue background
 
 def create_object(obj_data):
     current_time = pg.time.get_ticks()
